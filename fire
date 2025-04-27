@@ -1,0 +1,20 @@
+fetch('/subscribe', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ email: email })
+})
+.then(response => response.json())
+.then(data => {
+    if (data.success) {
+        document.getElementById("success-message").style.display = "block";
+        document.getElementById("error-message").style.display = "none";
+    } else {
+        throw new Error("Failed to subscribe");
+    }
+})
+.catch(error => {
+    document.getElementById("error-message").style.display = "block";
+    document.getElementById("success-message").style.display = "none";
+});
