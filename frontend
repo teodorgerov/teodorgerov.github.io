@@ -1,0 +1,40 @@
+// Add this script in your <script> tag or in a separate JS file
+document.getElementById("subscription-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent form from submitting the traditional way
+    
+    const email = document.getElementById("email").value;
+    
+    // Simple client-side validation
+    if (validateEmail(email)) {
+        // Call your backend (this could be an API or server endpoint to save the email)
+        // For the sake of example, we simulate success here:
+        
+        fetch('/subscribe', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email: email })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                document.getElementById("success-message").style.display = "block";
+                document.getElementById("error-message").style.display = "none";
+            } else {
+                throw new Error("Failed to subscribe");
+            }
+        })
+        .catch(error => {
+            document.getElementById("error-message").style.display = "block";
+            document.getElementById("success-message").style.display = "none";
+        });
+    } else {
+        alert("Please enter a valid email address.");
+    }
+});
+
+function validateEmail(email) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+}
