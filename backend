@@ -26,3 +26,13 @@ app.post('/subscribe', (req, res) => {
 });
 
 app.listen(3000, () => console.log('Server running on port 3000'));
+
+app.get('/subscriber-count', (req, res) => {
+    db.collection('subscribers').get()
+    .then(snapshot => {
+        res.json({ count: snapshot.size });
+    })
+    .catch(err => {
+        res.json({ error: err });
+    });
+});
