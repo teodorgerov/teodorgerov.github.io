@@ -1,0 +1,9 @@
+app.get('/subscriber-count', (req, res) => {
+    db.collection('subscribers').get()
+    .then(snapshot => {
+        res.json({ count: snapshot.size });
+    })
+    .catch(err => {
+        res.json({ error: err });
+    });
+});
