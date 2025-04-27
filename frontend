@@ -38,3 +38,10 @@ function validateEmail(email) {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
 }
+
+
+fetch('/subscriber-count')
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById("subscriber-count").innerText = `Subscribers: ${data.count}`;
+    });
