@@ -6,7 +6,7 @@
     <meta name="keywords" content="Teodor, blog, personal website, thoughts, creativity">
     <meta name="author" content="Teodor Gerov">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Teodor Website!</title>
+    <title>Teodor's Website</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
@@ -28,6 +28,28 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            padding: 10px 0;
+        }
+
+        header h1 {
+            color: white;
+            margin: 0;
+            font-size: 2em;
+        }
+
+        nav a {
+            margin: 0 15px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
         }
 
         main {
@@ -62,17 +84,60 @@
         a:hover {
             text-decoration: underline;
         }
+
+        .page {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
     </style>
 </head>
 <body>
-    <main>
+    <header>
+        <h1>Teodor's Website</h1>
+        <nav>
+            <a href="javascript:void(0);" onclick="showPage('home')">Home</a>
+            <a href="javascript:void(0);" onclick="showPage('about')">About</a>
+            <a href="javascript:void(0);" onclick="showPage('contact')">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Home Page -->
+    <main id="home" class="page active">
         <h1>The Teodor Website!!</h1>
         <p>This is going to be where I talk about things whaoooooo!!</p>
         <p>Stay tuned for cool ideas, thoughts, and randomness... I guess</p>
     </main>
 
+    <!-- About Page -->
+    <main id="about" class="page">
+        <h1>About Teodor</h1>
+        <p>This is the about page.</p>
+    </main>
+
+    <!-- Contact Page -->
+    <main id="contact" class="page">
+        <h1>Contact</h1>
+        <p>This is the contact page.</p>
+    </main>
+
     <footer>
         <p>© 2025 Teodor Gerov</p>
     </footer>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Show the clicked page
+            document.getElementById(pageId).classList.add('active');
+        }
+    </script>
 </body>
 </html>
