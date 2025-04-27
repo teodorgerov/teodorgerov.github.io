@@ -9,6 +9,7 @@
     <title>Teodor's Website</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
     <style>
         :root {
             --background-color: #f5f0e1; /* warm beige */
@@ -92,6 +93,17 @@
         .active {
             display: block;
         }
+
+        .social-icons a {
+            margin: 10px;
+            font-size: 2em;
+            color: var(--primary-color);
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #3f729b; /* Instagram's signature blue color */
+        }
     </style>
 </head>
 <body>
@@ -114,16 +126,18 @@
     <!-- About Page -->
     <main id="about" class="page">
         <h1>About Teodor</h1>
-        <p>This is the about page.</p>
+        <p>This is the about page. You can learn more about Teodor here!</p>
     </main>
 
     <!-- Contact Page -->
     <main id="contact" class="page">
         <h1>Contact</h1>
-        <p>This is the contact page.</p>
-        <a href="https://www.instagram.com/tedigerov/" target="_blank" style="font-size: 2em; color: #b9455a;">
-            <i class="fab fa-instagram"></i>
-        </a>
+        <p>If you'd like to contact me, feel free to reach out via Instagram:</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/tedigerov/" target="_blank">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
+        </div>
     </main>
 
     <footer>
